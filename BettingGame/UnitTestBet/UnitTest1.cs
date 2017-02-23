@@ -77,6 +77,25 @@ namespace UnitTestBet
         }
         [TestMethod]
 
+        public void calc_rand_numgen_pball()
+        {
+            List<int> vals2 = new List<int> { 65, 74, 68, 80,25 };
+            FakeNumberGenerator num_gen2 = new FakeNumberGenerator(vals2);
+            int pball = 25;
+            powerball my = new powerball(num_gen2);
+            
+            Assert.AreEqual(my,num_gen2);
+        }
+
+
+
+
+
+
+
+
+        [TestMethod]
+
         public void calc_user_lose_pball() //user losing in pball (integration testing )
         {
             List<int> vals = new List<int> { 84, 59, 43, 54 }; //initialize test vals for user & cpu
