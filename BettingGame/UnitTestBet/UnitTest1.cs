@@ -13,7 +13,7 @@ namespace UnitTestBet
     {
         [TestMethod]
 
-        public void calc_horse_gen() 
+        public void calc_horse_gen() //calculates randomGenerator & get speed method in horse class 
         {
             List<int> vals = new List<int> { 99 };
             string x="jerry";
@@ -23,14 +23,17 @@ namespace UnitTestBet
         }
 
         [TestMethod]
-
-        public void calc_get_horse_name()
+        public void calc_get_horse_name() //tests the getname method in the horse class 
         {
-
+            string x = "jerry";
+            List<int> vals = new List<int> { 84 };
+            FakeNumberGenerator num_gen = new FakeNumberGenerator(vals);
+            Horse my_horse = new Horse(x, num_gen);
+            Assert.AreEqual("jerry", my_horse.getName());
         }
 
         [TestMethod]
-        public void calc_horse_class_gen() //case where user loses to opponent in horse betting  (integration testing)
+        public void calc_horse_class_gen() //case where user loses to opponent in horse betting  (integration testing/ CompareTo function within horse class)
         {
             List<int> vals = new List<int> { 25, 89, 110, 54 }; //initialize test vals for user & cpu
             List<int> vals2 = new List<int> { 99, 74, 68, 35 };
