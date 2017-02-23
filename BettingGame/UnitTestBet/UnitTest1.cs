@@ -13,20 +13,27 @@ namespace UnitTestBet
     {
         [TestMethod]
 
-        public void calc_horse_gen()
+        public void calc_horse_gen() //calculates randomGenerator & get speed method in horse class 
         {
-            List<int> vals = new List<int> { 99, 74, 68, 35 };
+            List<int> vals = new List<int> { 99 };
+            string x="jerry";
             FakeNumberGenerator num_gen = new FakeNumberGenerator(vals);
-
-
-            for (int i = 0; i < vals.Count; i++)
-            {
-                //Assert.AreEqual(vals[i], num_gen);
-            }
+            Horse my_horse = new Horse(x, num_gen);          
+                Assert.AreEqual(99, my_horse.getSpeed());
         }
 
         [TestMethod]
-        public void calc_horse_class_gen() //case where user loses to opponent in horse betting  (integration testing)
+        public void calc_get_horse_name() //tests the getname method in the horse class 
+        {
+            string x = "jerry";
+            List<int> vals = new List<int> { 84 };
+            FakeNumberGenerator num_gen = new FakeNumberGenerator(vals);
+            Horse my_horse = new Horse(x, num_gen);
+            Assert.AreEqual("jerry", my_horse.getName());
+        }
+
+        [TestMethod]
+        public void calc_horse_class_gen() //case where user loses to opponent in horse betting  (integration testing/ CompareTo function within horse class)
         {
             List<int> vals = new List<int> { 25, 89, 110, 54 }; //initialize test vals for user & cpu
             List<int> vals2 = new List<int> { 99, 74, 68, 35 };
@@ -68,6 +75,25 @@ namespace UnitTestBet
             Assert.AreEqual(horse_race.WagerAmount * 2, winner); //user wins double the money from wager amount 
 
         }
+        [TestMethod]
+
+        public void calc_rand_numgen_pball()
+        {
+            List<int> vals2 = new List<int> { 65, 74, 68, 80,25 };
+            FakeNumberGenerator num_gen2 = new FakeNumberGenerator(vals2);
+            int pball = 25;
+            powerball my = new powerball(num_gen2);
+            
+            Assert.AreEqual(my,num_gen2);
+        }
+
+
+
+
+
+
+
+
         [TestMethod]
 
         public void calc_user_lose_pball() //user losing in pball (integration testing )
