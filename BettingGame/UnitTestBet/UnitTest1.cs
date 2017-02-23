@@ -13,17 +13,20 @@ namespace UnitTestBet
     {
         [TestMethod]
 
-        public void calc_horse_gen()
+        public void calc_horse_gen() 
         {
-            List<int> vals = new List<int> { 99, 74, 68, 35 };
+            List<int> vals = new List<int> { 99 };
+            string x="jerry";
             FakeNumberGenerator num_gen = new FakeNumberGenerator(vals);
-            //hi 
-            // hey
+            Horse my_horse = new Horse(x, num_gen);          
+                Assert.AreEqual(99, my_horse.getSpeed());
+        }
 
-            for (int i = 0; i < vals.Count; i++)
-            {
-                //Assert.AreEqual(vals[i], num_gen);
-            }
+        [TestMethod]
+
+        public void calc_get_horse_name()
+        {
+
         }
 
         [TestMethod]
